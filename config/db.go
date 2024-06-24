@@ -3,7 +3,7 @@ package config
 import (
 	"time"
 
-	"gorm.io/driver/postgres"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
 	"fmt"
@@ -19,10 +19,8 @@ type Student struct {
 }
 
 func NewDatabase() *gorm.DB {
-	// dsn := "host=localhost user=root password= dbname=learning port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-	dsn := "host=localhost user=root password= dbname=learning port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	dsn := "root:@tcp(127.0.0.1:3306)/go-sql?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		fmt.Println("Somethign wrong i can feel it", err)
