@@ -16,11 +16,12 @@ func main() {
 
 	fmt.Println("Main function has been trigerred.")
 
-	student := []config.Student{}
+	students := []config.Student{}
 
-	db.Find(&student)
+	db.Find(&students)
 
-	for _, data := range student {
+	for _, data := range students {
 		fmt.Println("ID:", data.ID)
+		fmt.Println("Name:", data.Name)
 	}
 }
