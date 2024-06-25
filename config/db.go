@@ -23,7 +23,7 @@ func NewDatabase() *gorm.DB {
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		fmt.Println("Somethign wrong i can feel it", err)
+		fmt.Println("Something wrong", err)
 		return nil
 	}
 
